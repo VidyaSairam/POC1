@@ -1,0 +1,92 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    padding:30px;
+    background-color: grey;
+    font-size: 39px;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+}
+
+aside{
+    display: inline-block;
+    background-color: paleturquoise;
+    width: 15%;
+    height: 90vh;
+    
+    border: 0.5px solid black;
+}
+/* 
+
+
+aside ul li {
+    list-style-type: none;
+    padding: 20px;
+}
+aside ul li:hover{
+    background-color: lightblue;
+    width: auto;   
+} */
+
+
+
+#box2_and_3{
+    list-style-type: none;
+    padding: 20px;
+    font-size: 20px;
+}
+
+/* #box1:hover{
+    
+} */
+
+#box2_and_3:hover{
+    background-color: lightblue;
+    width: auto;   
+    font-weight: bold;
+    color: darkblue;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+section ul{
+    list-style-type: none;
+    background-color: paleturquoise; 
+    /* display: none; */
+     
+} 
+
+ section ul li {
+    padding: 10px;
+} 
+
+#box1{
+    list-style-type: none;
+    padding: 20px;
+    font-size: 20px;
+}
+/* 
+#sub_box1{
+    background-color: lightcoral;
+    display: none;
+}*/
+
+#box1:hover{
+    background-color: lightblue;
+    width: auto;   
+    display: block;
+    font-weight: bold;
+    color: darkblue;
+} 
+
+section ul li:hover{
+    background-color: lightcoral;
+}
+
