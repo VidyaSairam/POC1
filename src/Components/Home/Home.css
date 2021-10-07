@@ -118,8 +118,8 @@ section ul li:hover{
     font-size: 10px;
 }
 
-.aside_li:hover{
-    
+.accordianContainer:hover{
+    background-color: lightcyan
 }
 
 .plus_button{

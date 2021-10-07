@@ -42,7 +42,7 @@ export default function Home({ navigation }) {
                     !aside_menuToggle ?
                         <aside className={'aside_toggleFalse'}>
                             <div className={'container'}>
-                                <AiOutlineMenu size={20} onClick={() => setAside_menuToggle(true)} />
+                                <AiOutlineMenu className={'accordianContainer'} size={20} onClick={() => setAside_menuToggle(true)} />
                                 <h3>Menu</h3>
                             </div>
                             <div className={'container_search'}>
@@ -52,7 +52,7 @@ export default function Home({ navigation }) {
                             {menu.map((item, index) => {
                                 console.log(item.expand)
                                 return (
-                                    <div>
+                                    <div className={'accordianContainer'}>
                                         <div className={'accordian_containerFalse'} onClick={() => handleToggle(index)}>
                                             <div className={'menuIcon_and_Text'}>
                                             <FontAwesomeIcon icon={item.icon} />
@@ -67,16 +67,15 @@ export default function Home({ navigation }) {
                         :
                         <aside className={'aside_toggleTrue'}>
                             <div className={'container'}>
-                                <AiOutlineMenu size={20} onClick={() => setAside_menuToggle(false)} />
+                                <AiOutlineMenu className={'accordianContainer'} size={20} onClick={() => setAside_menuToggle(false)} />
                             </div>
                             <div className={'container_search'}>
                                 {/* <input type='text' placeholder={'search'} style={{ width: "70%" }} /> */}
                                 <AiOutlineSearch size={20} />
                             </div>
                             {menu.map((item, index) => {
-                                console.log(item.expand)
                                 return (
-                                    <div>
+                                    <div className={'accordianContainer'}>
                                         <div className={'accordian_containerTrue'} onClick={() => handleToggle(index)}>
                                             <FontAwesomeIcon icon={item.icon} />
                                             <li className={'aside_li_toggleTrue'}>{item.menu_name}</li>
