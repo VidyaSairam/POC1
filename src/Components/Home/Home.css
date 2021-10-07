@@ -12,7 +12,7 @@ header{
     color: white;
 }
 
-aside{
+.aside_toggleFalse{
     display: inline-block;
     background-color: paleturquoise;
     width: 15%;
@@ -20,6 +20,16 @@ aside{
     
     border: 0.5px solid black;
 }
+
+.aside_toggleTrue{
+    display: inline-block;
+    background-color: paleturquoise;
+    width: 8%;
+    height: 90vh;
+    
+    border: 0.5px solid black;
+}
+
 /* 
 
 
@@ -33,33 +43,32 @@ aside ul li:hover{
 } */
 
 
-
+/* 
 #box2_and_3{
     list-style-type: none;
     padding: 20px;
     font-size: 20px;
-}
+} */
 
 /* #box1:hover{
     
 } */
-
+/* 
 #box2_and_3:hover{
     background-color: lightblue;
     width: auto;   
     font-weight: bold;
     color: darkblue;
-}
+} */
 
 main{
     display: flex;
     flex-direction: row;
 }
 
-section ul{
+/* section ul{
     list-style-type: none;
-    background-color: paleturquoise; 
-    /* display: none; */
+    background-color: paleturquoise;
      
 } 
 
@@ -76,7 +85,7 @@ section ul{
 #sub_box1{
     background-color: lightcoral;
     display: none;
-}*/
+}
 
 #box1:hover{
     background-color: lightblue;
@@ -88,5 +97,80 @@ section ul{
 
 section ul li:hover{
     background-color: lightcoral;
+} */
+
+.aside_li_toggleFalse{
+    list-style-type: none;
+    padding: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
+.aside_li_toggleTrue{
+    list-style-type: none;
+    padding: 20px;
+    /* width: 30%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.aside_li:hover{
+    
+}
+
+.plus_button{
+    font-size: 15px;
+}
+
+.accordian_containerFalse{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menuIcon_and_Text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
+    justify-content: space-around;
+}
+
+
+.accordian_containerTrue{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px 0px;
+}
+
+
+
+.accordian_container:hover{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: lightcyan;
+}
+
+.container_search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
