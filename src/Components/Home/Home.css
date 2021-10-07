@@ -174,3 +174,10 @@ section ul li:hover{
     margin-top: 20px;
     margin-bottom: 40px;
 }
+
+.submenu_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

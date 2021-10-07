@@ -4,32 +4,35 @@ import useMenu from '../Custom_Hooks/useMenu'
 import './Home.css'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faPowerOff, faAddressBook, faAddressCard, faDumpster, faFileInvoice, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faPowerOff, faAddressBook, faAddressCard, faDumpster, faFileInvoice, faFileAlt,faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 export default function Home({ navigation }) {
     const history = useHistory()
-    const [submenu, setSubmenu] = useState(false)
-    const [menu, setMenu] = useState([]);
     const local_menu = useMenu();
+    const [menu, setMenu] = useState(local_menu);
+    const [submenu, setSubmenu] = useState(false)
     const [aside_menuToggle, setAside_menuToggle] = useState(false)
+    const [searchText, setSearchText] = useState("")
 
-    useEffect(() => {
-
-        setMenu(local_menu);
-
-    }, [])
 
 
     const handleToggle = (index) => {
         const menuList = menu
-        menuList.map((childItem, childIndex) => {
-            if (childIndex == index) {
-                childItem.expand = true
-            }
-            else {
-                childItem.expand = false
-            }
-        })
-        setMenu(menuList)
+        menuList[index].expand = !menuList[index].expand
+        setMenu([])
+        setTimeout(() => {
+            setMenu(menuList)
+        }, 1)
+    }
+
+    const handleSearchText = (e) => {
+        setSearchText(e.target.value)
+        if (e.target.value == ' ' || e.target.value == '') {
+            setMenu(local_menu)
+        }
+        else {
+            const res = menu.filter(item => item.menu_name.toLowerCase().includes(e.target.value))
+            setMenu(res)
+        }
     }
 
     return (
@@ -46,20 +49,38 @@ export default function Home({ navigation }) {
                                 <h3>Menu</h3>
                             </div>
                             <div className={'container_search'}>
-                                <input type='text' placeholder={'search'} style={{ width: "70%" }} />
+                                <input type='text'
+                                    placeholder={'search'}
+                                    style={{ width: "70%" }}
+                                    value={searchText}
+                                    onChange={handleSearchText}
+
+                                />
                                 <AiOutlineSearch style={{ marginLeft: 10 }} size={20} />
                             </div>
                             {menu.map((item, index) => {
-                                console.log(item.expand)
                                 return (
                                     <div className={'accordianContainer'}>
                                         <div className={'accordian_containerFalse'} onClick={() => handleToggle(index)}>
                                             <div className={'menuIcon_and_Text'}>
-                                            <FontAwesomeIcon icon={item.icon} />
+                                                <FontAwesomeIcon icon={item.icon} />
                                                 <li className={'aside_li_toggleFalse'}>{item.menu_name}</li>
                                             </div>
-                                            <p className={'plus_button'}>+</p>
+                                            {!item.expand == true ?
+                                                <p className={'plus_button'}>+</p> : <p className={'plus_button'}>-</p>
+                                            }
+                                            
                                         </div>
+                                        {
+                                            item.expand == true ?
+                                                <div className={'submenu_container'}>
+                                                    {item.subMenu.map((item, index) => {
+                                                        return (
+                                                            <li>{item.menu_name}</li>
+                                                        )
+                                                    })}
+                                                </div> : null
+                                        }
                                     </div>
                                 )
                             })}
@@ -79,7 +100,6 @@ export default function Home({ navigation }) {
                                         <div className={'accordian_containerTrue'} onClick={() => handleToggle(index)}>
                                             <FontAwesomeIcon icon={item.icon} />
                                             <li className={'aside_li_toggleTrue'}>{item.menu_name}</li>
-                                            {/* <p className={'plus_button'}>+</p> */}
                                         </div>
                                     </div>
                                 )
