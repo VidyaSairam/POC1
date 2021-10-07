@@ -10,13 +10,13 @@ export default function useMenu() {
             subMenu: [
                 {
                     menu_name: 'Product 1',
-                    path: '/',
+                    path: '/master1_1/test/ABC',
                     expand: false,
                     icon: faPowerOff,
                 },
                 {
                     menu_name: 'Product 2',
-                    path: '/',
+                    path: '/master1_2',
                     expand: false,
                     icon: faPowerOff,
                 }

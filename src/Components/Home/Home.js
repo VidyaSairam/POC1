@@ -50,7 +50,7 @@ export default function Home({ navigation }) {
                             </div>
                             <div className={'container_search'}>
                                 <input type='text'
-                                    placeholder={'search'}
+                                    placeholder={'Search'}
                                     style={{ width: "70%" }}
                                     value={searchText}
                                     onChange={handleSearchText}
@@ -76,7 +76,7 @@ export default function Home({ navigation }) {
                                                 <div className={'submenu_container'}>
                                                     {item.subMenu.map((item, index) => {
                                                         return (
-                                                            <li>{item.menu_name}</li>
+                                                            <li onClick={() => history.push(item.path)}>{item.menu_name}</li>
                                                         )
                                                     })}
                                                 </div> : null
