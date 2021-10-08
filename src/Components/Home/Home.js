@@ -4,7 +4,7 @@ import useMenu from '../Custom_Hooks/useMenu'
 import './Home.css'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faPowerOff, faAddressBook, faAddressCard, faDumpster, faFileInvoice, faFileAlt,faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faPowerOff, faAddressBook, faAddressCard, faDumpster, faFileInvoice, faFileAlt, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 export default function Home({ navigation }) {
     const history = useHistory()
     const local_menu = useMenu();
@@ -30,7 +30,26 @@ export default function Home({ navigation }) {
             setMenu(local_menu)
         }
         else {
-            const res = menu.filter(item => item.menu_name.toLowerCase().includes(e.target.value))
+            // console.log(e.target.value)
+            const res = []
+            menu.map((item,index)=>{
+                if(item.menu_name.toLowerCase().includes(e.target.value.toLowerCase())){
+                    console.log(e.target.value.toLowerCase())
+                    if(!res.includes(item)){
+                        res.push(item)
+                    }
+                    
+                    if(item.isSubMenuExist){
+                        item.subMenu.map((childItem,childIndex)=>{
+                            if(childItem.menu_name.toLowerCase().includes(e.target.value.toLowerCase())){
+                                if(!res.includes(childItem)){
+                                    res.push(childItem)
+                                }
+                            }
+                        })
+                    }
+                }
+            })
             setMenu(res)
         }
     }
@@ -61,7 +80,9 @@ export default function Home({ navigation }) {
                             {menu.map((item, index) => {
                                 return (
                                     <div className={'accordianContainer'}>
-                                        <div className={'accordian_containerFalse'} onClick={() => handleToggle(index)}>
+                                        <div className={'accordian_containerFalse'} onClick={
+                                            !item.isSubMenuExist ? () => history.push(item.path) :
+                                                () => handleToggle(index)}>
                                             <div className={'menuIcon_and_Text'}>
                                                 <FontAwesomeIcon icon={item.icon} />
                                                 <li className={'aside_li_toggleFalse'}>{item.menu_name}</li>
@@ -69,7 +90,7 @@ export default function Home({ navigation }) {
                                             {!item.expand == true ?
                                                 <p className={'plus_button'}>+</p> : <p className={'plus_button'}>-</p>
                                             }
-                                            
+
                                         </div>
                                         {
                                             item.expand == true ?

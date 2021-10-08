@@ -7,6 +7,7 @@ export default function useMenu() {
             path: '/',
             expand: false,
             icon: faProjectDiagram,
+            isSubMenuExist : true,
             subMenu: [
                 {
                     menu_name: 'Product 1',
@@ -27,6 +28,7 @@ export default function useMenu() {
             path: '/',
             expand: false,
             icon: faAddressCard,
+            isSubMenuExist : false,
             subMenu:[]
         },
         {
@@ -34,24 +36,28 @@ export default function useMenu() {
             path: '/',
             expand: false,
             icon: faAddressBook,
+            isSubMenuExist : false,
             subMenu:[]
         },
         {
             menu_name: 'Clearance',
-            path: '/',
+            path: '/clearance',
             expand: false,
             icon: faDumpster,
+            isSubMenuExist : false,
             subMenu:[]
         },
         {
             menu_name: 'Tax',
-            path: '/',
+            path: '/tax',
             expand: false,
             icon: faFileInvoice,
+            isSubMenuExist : false,
             subMenu:[]
         },
         {
             menu_name: 'Update Form',
+            isSubMenuExist : false,
             path: '/',
             expand: false,
             icon: faFileAlt,
