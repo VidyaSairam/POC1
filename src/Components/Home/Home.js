@@ -30,7 +30,6 @@ export default function Home({ navigation }) {
             setMenu(local_menu)
         }
         else {
-            // console.log(e.target.value)
             const res = []
             menu.map((item,index)=>{
                 if(item.menu_name.toLowerCase().includes(e.target.value.toLowerCase())){

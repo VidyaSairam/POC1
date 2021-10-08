@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px;
+    width: 50%;
+}
+
+.Container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px;
+    width: 50%;
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    color: white;
+}
+
+.button1{
+    background-color: green;
+}
+
+.button2{
+    background-color: red;
+}
+
+.yearly_tax_content{
+    padding-top: 30px;
+    width: 40%;
+    margin-left: 140px;
+}
