@@ -33,8 +33,6 @@ export default function Tax() {
 
     const response = useSelector(reducer => reducer)
 
-    console.log(response)
-
     return (
         <>
             <header>Tax Calculator</header>

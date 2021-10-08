@@ -31,22 +31,32 @@ export default function Home({ navigation }) {
         }
         else {
             const res = []
-            menu.map((item,index)=>{
-                if(item.menu_name.toLowerCase().includes(e.target.value.toLowerCase())){
-                    console.log(e.target.value.toLowerCase())
-                    if(!res.includes(item)){
+            local_menu.map((item, index) => {
+                if (item.menu_name.toLowerCase().includes(e.target.value.toLowerCase())) {
+                    if (!res.includes(item)) {
                         res.push(item)
                     }
-                    
-                    if(item.isSubMenuExist){
-                        item.subMenu.map((childItem,childIndex)=>{
-                            if(childItem.menu_name.toLowerCase().includes(e.target.value.toLowerCase())){
-                                if(!res.includes(childItem)){
-                                    res.push(childItem)
-                                }
+                }
+            })
+
+            local_menu.map((item, index) => {
+                if (item.isSubMenuExist) {
+
+
+                    item.subMenu.map((childItem, childIndex) => {
+                        if (childItem.menu_name.toLowerCase().includes(e.target.value.toLowerCase())) {
+                            if (!res.includes(childItem)) {
+                                res.push(childItem)
                             }
-                        })
-                    }
+                        }
+                        // if (childItem.menu_name.toLowerCase().includes(e.target.value.toLowerCase())) {
+                        //     console.log("Inside")
+                        //     if (!res.includes(childItem)) {
+                        //         res.push(childItem)
+                        //     }
+                        // }
+
+                    })
                 }
             })
             setMenu(res)

@@ -8,8 +8,6 @@ export default function Clearance() {
     const dispatch = useDispatch()
     const history = useHistory()
     const response = useSelector(reducer => reducer)
-
-    console.log(response)
     return (
         <>
             <header>Clearance</header>
