@@ -34,16 +34,15 @@ export default function Tax() {
     const response = useSelector(reducer => reducer)
 
     return (
-        <>
-            <header>Tax Calculator</header>
-            <div className={'Container'}>
-                <h5>Enter your yearly salary</h5>
+        <div id={'tax_container'}>
+            <div id={'text_input_container'}>
+                <h3>Enter your yearly salary</h3>
                 <input type="number" placeholder="Enter your yearly salary" value={yearlyincome}
                     onChange={(e) => setYearlyIncome(e.target.value)} />
             </div>
 
-            <div className={'Container'}>
-                <h5>Select your paygroup</h5>
+            <div id={'text_input_container'}>
+                <h3>Select your paygroup</h3>
                 <select onChange={handleTax}>
                     <option>Not Applicable</option>
                     <option>Group1 ( less than 5 Lakhs)</option>
@@ -53,11 +52,11 @@ export default function Tax() {
                 </select>
             </div>
             <div className={'yearly_tax_content'}>
-                <p>The <b>yearly tax</b> for the income {yearlyincome} is {incomeLevel}</p>
+                <h4>The <b>yearly tax</b> for the income {yearlyincome} is {incomeLevel}</h4>
                 <br />
                 <p>Do you want to <b>save</b> the calculated tax value?</p>
             </div>
-            <div className={'buttonContainer'}>
+            <div id={'buttonContainer'}>
                 <button  onClick={
                     () => {
                         dispatch({
@@ -65,12 +64,12 @@ export default function Tax() {
                             data: incomeLevel
                         })
                     }
-                } className={'button1'}>Approve</button>
+                } id={'button1'}>Approve</button>
                 <button  onClick={
                     () => history.push("/")
                 } 
-                className={'button2'}>Reject</button>
+                id={'button2'}>Reject</button>
             </div>
-        </>
+        </div>
     )
 }

@@ -9,10 +9,9 @@ export default function Clearance() {
     const history = useHistory()
     const response = useSelector(reducer => reducer)
     return (
-        <>
-            <header>Clearance</header>
-            <div className={'Container'}>
-                <h5>Enter the existing arrear amount</h5>
+        <div id={'clearance_container'}>
+            <div id={'text_input_container'}>
+                <h3>Enter the existing arrear amount</h3>
                 <input type="number"
                     placeholder={"Enter the existing arrear amount"}
                     value={balance}
@@ -20,8 +19,8 @@ export default function Clearance() {
                 />
             </div>
 
-            <div className={'Container'}>
-                <h5>Enter the clearance interest percentage</h5>
+            <div id={'text_input_container'}>
+                <h3>Enter the clearance interest percentage</h3>
                 <input type="number"
                     placeholder={"Enter the Clearance interest percentage"}
                     onChange={(e) => {
@@ -30,12 +29,12 @@ export default function Clearance() {
                     }}
                 />
             </div>
-            <div className={'yearly_tax_content'}>
-                <h4>{`The Clearance interest rate for the balance ${balance} is ${interestValue}`}</h4>
+            <div id={'yearly_tax_content'}>
+                <h4 id={'text_spacing'}>{`The Clearance interest rate for the balance ${balance} is ${interestValue}`}</h4>
                 <br />
                 <p>Do you want to <b>save</b> the calculated clearance value?</p>
             </div>
-            <div className={'buttonContainer'}>
+            <div id={'buttonContainer'}>
                 <button onClick={
                     () => {
                         dispatch({
@@ -43,12 +42,12 @@ export default function Clearance() {
                             data: interestValue
                         })
                     }
-                } className={'button1'}>Approve</button>
+                } id={'button1'}>Approve</button>
                 <button onClick={
                     () => history.push("/")
                 }
-                    className={'button2'}>Reject</button>
+                    id={'button2'}>Reject</button>
             </div>
-        </>
+        </div>
     )
 }

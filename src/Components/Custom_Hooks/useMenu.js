@@ -14,6 +14,15 @@ export default function useMenu() {
                     path: '/master1_1/test/ABC',
                     expand: false,
                     icon: faPowerOff,
+                    isSubMenuExist : true,
+                    subMenu: [
+                        {
+                            menu_name: 'Product1',
+                            path: '/master1_1/test/ABC',
+                            expand: false,
+                            icon: faPowerOff,
+                        }
+                    ]
                 },
                 {
                     menu_name: 'Product2',
