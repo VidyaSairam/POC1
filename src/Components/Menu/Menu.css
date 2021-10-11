@@ -26,8 +26,8 @@
     display: inline-block;
     background-color: paleturquoise;
     width: 8%;
-    height: 90vh;
-    
+    height: 80vh;
+    overflow-y: scroll ;
     border: 0.5px solid black;
 }
 
