@@ -14,15 +14,6 @@ export default function useMenu() {
                     path: '/master1_1/test/ABC',
                     expand: false,
                     icon: faPowerOff,
-                    isSubMenuExist : true,
-                    subMenu: [
-                        {
-                            menu_name: 'Product1',
-                            path: '/master1_1/test/ABC',
-                            expand: false,
-                            icon: faPowerOff,
-                        }
-                    ]
                 },
                 {
                     menu_name: 'Product2',
@@ -34,7 +25,7 @@ export default function useMenu() {
         },
         {
             menu_name: 'About',
-            path: '/',
+            path: '/about',
             expand: false,
             icon: faAddressCard,
             isSubMenuExist : false,
@@ -42,7 +33,7 @@ export default function useMenu() {
         },
         {
             menu_name: 'Contact',
-            path: '/',
+            path: '/contact',
             expand: false,
             icon: faAddressBook,
             isSubMenuExist : false,

@@ -15,10 +15,24 @@ export default function Menu({ navigation }) {
     const [searchText, setSearchText] = useState("")
 
 
+    const handleMenuExpand = (itemParam) => {
+        const arr = local_menu
+        const res = arr.map((item) => {
+            if (item == itemParam) {
+                item.expand = !item.expand
+            }
+            else {
+                item.isSubMenuExist && menu_list(item.subMenu)
+            }
+        })
+    }
 
-    const handleToggle = (index) => {
+
+    const handleToggle = (item) => {
+        const response = handleMenuExpand(item)
+        // console.log(response,"response")
         const menuList = menu
-        menuList[index].expand = !menuList[index].expand
+        menuList[0].expand = !menuList[0].expand
         setMenu([])
         setTimeout(() => {
             setMenu(menuList)
@@ -42,26 +56,44 @@ export default function Menu({ navigation }) {
 
             local_menu.map((item, index) => {
                 if (item.isSubMenuExist) {
-
-
                     item.subMenu.map((childItem, childIndex) => {
                         if (childItem.menu_name.toLowerCase().includes(e.target.value.toLowerCase())) {
                             if (!res.includes(childItem)) {
                                 res.push(childItem)
                             }
                         }
-                        // if (childItem.menu_name.toLowerCase().includes(e.target.value.toLowerCase())) {
-                        //     console.log("Inside")
-                        //     if (!res.includes(childItem)) {
-                        //         res.push(childItem)
-                        //     }
-                        // }
 
                     })
                 }
             })
             setMenu(res)
         }
+    }
+
+    const menu_list = (menuParams) => {
+        return menuParams.map((item, index) => (
+            <div className={'accordianContainer'}>
+                <div className={'accordian_containerFalse'}
+                    onClick={
+                        !item.isSubMenuExist ? () => history.push(item.path) :
+                            () => {
+                                handleToggle(item)
+                            }}
+                >
+                    <div className={'menuIcon_and_Text'}>
+                        <FontAwesomeIcon icon={item.icon} />
+                        <li className={'aside_li_toggleFalse'}>{item.menu_name}</li>
+                    </div>
+                    {!item.expand == true ?
+                        <p className={'plus_button'}>+</p> : <p className={'plus_button'}>-</p>
+                    }
+                </div>
+                <div style={{ fontSize: 10 }}>
+                    {item.expand && menu_list(item.subMenu)}
+                </div>
+            </div>
+
+        ))
     }
 
     return (
@@ -84,7 +116,10 @@ export default function Menu({ navigation }) {
                                 />
                                 <AiOutlineSearch style={{ marginLeft: 10 }} size={20} />
                             </div>
-                            {menu.map((item, index) => {
+                            {
+                                menu_list(menu)
+                            }
+                            {/* {menu.map((item, index) => {
                                 return (
                                     <div className={'accordianContainer'}>
                                         <div className={'accordian_containerFalse'} onClick={
@@ -114,7 +149,7 @@ export default function Menu({ navigation }) {
                                         }
                                     </div>
                                 )
-                            })}
+                            })} */}
                         </aside>
                         :
                         <aside className={'aside_toggleTrue'}>
@@ -122,7 +157,6 @@ export default function Menu({ navigation }) {
                                 <AiOutlineMenu className={'accordianContainer'} size={20} onClick={() => setAside_menuToggle(false)} />
                             </div>
                             <div className={'container_search'}>
-                                {/* <input type='text' placeholder={'search'} style={{ width: "70%" }} /> */}
                                 <AiOutlineSearch size={20} />
                             </div>
                             {menu.map((item, index) => {
