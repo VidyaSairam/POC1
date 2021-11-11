@@ -1,0 +1,22 @@
+.p-panelmenu {
+  height: 100vw;
+  background-color: #3925a8;
+}
+
+.p-panelmenu-panel {
+  padding: 12px;
+  /* background: #3925a8; */
+}
+
+.p-menuitem-link {
+  padding: 12px;
+  color: white;
+}
+
+.p-panelmenu-header-link {
+  color: white;
+}
+
+.pi-fw {
+  margin-right: 10px
+}
