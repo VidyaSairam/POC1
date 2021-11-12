@@ -16,14 +16,14 @@ function Menu({ navigation, history }) {
       items: [
         {
           label: "Product 1",
-          icon: "pi pi-fw pi-plus",
+          icon: "pi pi-fw pi-sitemap",
           command: (e) => {
             history.push("/master1_1/test/ABC");
           },
         },
         {
           label: "Product 2",
-          icon: "pi pi-fw pi-trash",
+          icon: "pi pi-fw pi-sitemap",
           command: (e) => {
             history.push("/master1_2");
           },
